@@ -1,0 +1,5 @@
+[
+  { "id": "kw-001", "name": "Seiko SKX007", "brand": "Seiko", "price": 299, "tags": ["diver", "automatic"] },
+  { "id": "kw-002", "name": "Casio F91W", "brand": "Casio", "price": 19,  "tags": ["digital", "classic"] },
+  { "id": "kw-003", "name": "Tissot PRX Powermatic 80", "brand": "Tissot", "price": 675, "tags": ["automatic", "dress"] }
+]

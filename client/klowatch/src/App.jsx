@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Navbar from "./components/navbar"
 import HomePage from "./pages/home-page" 
 import ProfilePage from "./pages/profile-page"  
 import WatchListPage from "./pages/watchlist-page"  
@@ -6,6 +7,8 @@ import WatchListPage from "./pages/watchlist-page"
 function App() {
   return (
     <Router>
+      <Navbar />
+
       <Routes>
         <Route path="/" element = {<HomePage/>} />
         <Route path="/watchlist" element = {<WatchListPage/>} />

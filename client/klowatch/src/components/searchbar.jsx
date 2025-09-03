@@ -26,17 +26,15 @@ function Searchbar() {
 
             {
                 activeSearch.length > 0 && (
-                    <div className="absolute top-18 p-2 bg-white text-[#313f47] w-full rounded-2xl left-1/2 -translate-x-1/2 flex flex-col gap-2">
+                    <div className="absolute top-15 p-2 bg-white text-[#313f47] w-full rounded-2xl left-1/2 -translate-x-1/2 flex flex-col gap-2">
                         {
-                            activeSearch.map(s =>(
+                            activeSearch.map(s => (
                                 <span>{s}</span>
                             ))
                         }
                     </div>
                 )
             }
-
-
         </form>
     )
 }

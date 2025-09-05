@@ -13,7 +13,7 @@ function Poster({variant = "default"}){
     };
 
     return (
-        <img src={urlImage} className={`${getVariant()}`}/>
+        <img src={urlImage} className={`${getVariant()} cursor-pointer`}/>
     );
 }
 

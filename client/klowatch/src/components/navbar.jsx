@@ -22,7 +22,7 @@ function Navbar() {
         </h1>
 
         {/* Logo Mobile Ver */}
-        <h1 className="flex sm:hidden text-2xl font-bold">
+        <h1 className="flex sm:hidden text-2xl font-bold px-4">
           <Link to="/" className="flex items-center">
             Kl<RiMovie2Fill size={22} className="text-[#202a30]" />watch
           </Link>

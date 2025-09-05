@@ -19,7 +19,7 @@ function Searchbar() {
         <form className="w-full sm:w-[600px] relative">
             <div className="relative">
                 <input type="search" placeholder="Type Here" className="w-full p-2 rounded-2xl bg-white placeholder-[#313f47] text-[#313f47] focus:outline-none focus:ring-2 focus:ring-[#6b6b6b]" onChange={(e) => handleSearch(e)} />
-                <button className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-[#313f47] rounded-2xl">
+                <button className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-[#313f47] rounded-2xl cursor-pointer">
                     <FiSearch />
                 </button>
             </div>

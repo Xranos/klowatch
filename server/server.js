@@ -28,6 +28,18 @@ app.get("/api/search", async (req, res) => {
   }
 });
 
+app.get("/api/movies/popular", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}`
+    );
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch popular movies" });
+  }
+});
+
 
 app.listen(PORT, () =>
   console.log(`API running at http://localhost:${PORT}`)

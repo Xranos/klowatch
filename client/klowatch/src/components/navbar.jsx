@@ -5,7 +5,7 @@ import Searchbar from "./searchbar";
 
 import { RiMovie2Fill } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
-import { CgProfile } from "react-icons/cg";
+// import { CgProfile } from "react-icons/cg";
 import { CiViewList } from "react-icons/ci";
 
 function Navbar() {
@@ -15,14 +15,14 @@ function Navbar() {
       <div className=" h-16 items-center flex justify-between">
 
         {/* Logo Desktop Ver */}
-        <h1 className="hidden sm:flex text-4xl font-bold px-10">
+        <h1 className="hidden sm:flex text-4xl font-bold pl-10">
           <Link to="/" className="flex items-center">
             Kl<RiMovie2Fill size={30} className="text-[#202a30]" />watch
           </Link>
         </h1>
 
         {/* Logo Mobile Ver */}
-        <h1 className="flex sm:hidden text-2xl font-bold">
+        <h1 className="flex sm:hidden text-2xl font-bold px-4">
           <Link to="/" className="flex items-center">
             Kl<RiMovie2Fill size={22} className="text-[#202a30]" />watch
           </Link>
@@ -37,7 +37,7 @@ function Navbar() {
         <div className="hidden sm:block">
           <ul className="flex gap-20 text-xl font-medium pr-15 ">
             <Link to="watchlist"><li className="hover:text-[#6b6b6b] flex gap-2 items-center" ><CiViewList size={24} />Watchlist</li></Link>
-            <Link to="profile"><li className="hover:text-[#6b6b6b] flex gap-2 items-center"><CgProfile size={24} />Profile</li></Link>
+            {/* <Link to="profile"><li className="hover:text-[#6b6b6b] flex gap-2 items-center"><CgProfile size={24} />Profile</li></Link> */}
           </ul>
         </div>
 
@@ -49,7 +49,7 @@ function Navbar() {
       </div>
 
       {/* Mobile searchbar*/}
-      <div className="sm:hidden px-4 pb-2">
+      <div className="sm:hidden px-10 pb-2">
         <Searchbar />
       </div>
 
@@ -58,7 +58,7 @@ function Navbar() {
         sm:hidden bg-[#465a66]`}>
         <ul className="divide-y divide-[#202a30]">
           <li className="hover:text-[#6b6b6b] text-xl font-medium px-4 py-1" ><Link to="watchlist" className="flex gap-2 items-center"><CiViewList size={30} />Watchlist</Link></li>
-          <li className="hover:text-[#6b6b6b] text-xl font-medium px-4 py-1"><Link to="profile" className="flex gap-2 items-center"><CgProfile size={30} />Profile</Link></li>
+          {/* <li className="hover:text-[#6b6b6b] text-xl font-medium px-4 py-1"><Link to="profile" className="flex gap-2 items-center"><CgProfile size={30} />Profile</Link></li> */}
         </ul>
       </div>
 

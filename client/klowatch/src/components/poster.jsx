@@ -6,7 +6,9 @@ function Poster({variant = "default"}){
     const getVariant = () =>{
         switch(variant){
             case"poster-card":
-                return "object-cover rounded-t-2xl w-full aspect-[2/3]";
+                return "object-cover rounded-t-2xl w-full aspect-[2/3] cursor-pointer";
+            case"poster-detail":
+                return "object-cover rounded-2xl w-full";
             default:
                 return "w-48 h-72";
         }

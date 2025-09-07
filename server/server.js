@@ -10,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 app.get("/api/ping", (req, res) => {
   res.json({ ok: true, time: new Date().toISOString() });
 });
@@ -30,9 +29,7 @@ app.get("/api/search", async (req, res) => {
 
 app.get("/api/movies/popular", async (req, res) => {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}`
-    );
+    const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}`);
     const data = await response.json();
     res.json(data);
   } catch (error) {
@@ -40,6 +37,16 @@ app.get("/api/movies/popular", async (req, res) => {
   }
 });
 
+app.get("/api/movies/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}&append_to_response=credits`);
+     const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch movie details", detail: error.message });
+  }
+});
 
 app.listen(PORT, () =>
   console.log(`API running at http://localhost:${PORT}`)

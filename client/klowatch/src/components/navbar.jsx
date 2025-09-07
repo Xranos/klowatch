@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import Searchbar from "./searchbar";
 
 import { RiMovie2Fill } from "react-icons/ri";
@@ -8,7 +7,7 @@ import { CiMenuBurger } from "react-icons/ci";
 // import { CgProfile } from "react-icons/cg";
 import { CiViewList } from "react-icons/ci";
 
-function Navbar() {
+function Navbar({onSearchResults, onClearSearch}) {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <nav className="bg-[#313f47] text-white shadow-xl">
@@ -30,7 +29,7 @@ function Navbar() {
 
 
         <div className="hidden sm:block">
-          <Searchbar />
+          <Searchbar onSearchResults={onSearchResults} onClearSearch={onClearSearch}/>
         </div>
 
         {/* Menus Desktop Ver */}
@@ -50,7 +49,7 @@ function Navbar() {
 
       {/* Mobile searchbar*/}
       <div className="sm:hidden px-10 pb-2">
-        <Searchbar />
+        <Searchbar onSearchResults={onSearchResults} onClearSearch={onClearSearch}/>
       </div>
 
       {/* Menus Mobile Ver */}

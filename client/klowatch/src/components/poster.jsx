@@ -1,3 +1,5 @@
+import placeholder from "../assets/No-Image-Placeholder.svg.png";
+
 
 function Poster({movie, variant = "default"}){
     const getVariant = () =>{
@@ -12,12 +14,11 @@ function Poster({movie, variant = "default"}){
     };
 
     const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
-    const fallbackImage = "https://images-cdn.ubuy.co.id/63ef0a397f1d781bea0a2464-star-wars-rogue-one-movie-poster.jpg";
 
 
     const posterSrc = movie?.poster_path
         ? `${imageBaseUrl}${movie.poster_path}`
-        : fallbackImage;
+        : placeholder;
 
     return (
         <img src={posterSrc} alt={movie?.title || "Movie Poster"} className={`${getVariant()}`}/>

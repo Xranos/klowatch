@@ -6,7 +6,6 @@ function Card({movie}){
     const formatDate = (dateString) => {
         if(!dateString) return "Unknown Date";
         const date = new Date(dateString);
-
         const day = date.getDate();
         const monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         const month = monthName[date.getMonth()];
@@ -18,17 +17,17 @@ function Card({movie}){
         return rating ? rating.toFixed(1) : "NA"
     }
     return (
-        <div className="bg-[#313f47] rounded-2xl">
-            <Link to="detail">
+        <div className="bg-[#313f47] rounded-2xl grid grid-rows-[auto_1fr] h-full">
+            <Link to={`/movie/${movie?.id}`}>
                 <Poster movie={movie} variant="poster-card" />
             </Link>
-            <div className="mt-2 px-2">
+            <div className="mt-2 px-2 grid grid-rows-[auto_auto_auto_1fr] pb-2">
                 <p className="text-sm text-yellow-400">{formatRating(movie?.vote_average)}⭐</p>
-                <Link to="detail">
+                <Link to={`/movie/${movie?.id}`}>
                     <h2 className="font-semibold text-white hover:text-[#6b6b6b] cursor-pointer pt-1">{movie?.title || "Unknown Title"}</h2>
                 </Link>
                 <p className="text-white text-xs pt-1">{formatDate(movie?.release_date)}</p>
-                <div className="items-center flex flex-col py-2">
+                <div className="items-center flex flex-col justify-end py-2">
                     <WatchListBtn variant="button-card"/>
                 </div>
             </div>

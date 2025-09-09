@@ -120,7 +120,7 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
         <div className="px-4 py-7 max-w-7xl mx-auto">
             <div className="flex items-center gap-x-5 mb-5">
                 {displaySearchActive && (
-                    <button onClick={handleClearSearch} className="text-white hover:text-blue-300 underline lg:text-lg sm:text-base"><IoArrowBackCircle size={45} /></button>
+                    <button onClick={handleClearSearch} className="text-white hover:text-[#6b6b6b] underline lg:text-lg sm:text-base"><IoArrowBackCircle size={45} /></button>
                 )}
                 <h1 className="lg:text-4xl sm:text-2xl text-white font-bold">
                     {displaySearchActive ? `Search Results for "${displaySearchQuery}"` : "Popular Movies"}

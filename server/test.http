@@ -1,0 +1,13 @@
+POST http://localhost:3000/api/watchlist
+Content-Type: application/json
+
+{
+  "device_id": "test_device_123",
+  "movie": {
+    "id": 603,
+    "title": "The Matrix",
+    "poster_path": "/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    "release_date": "1999-03-30",
+    "vote_average": 8.7
+  }
+}

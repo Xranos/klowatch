@@ -77,7 +77,7 @@ function DetailPage() {
                     </div>
 
                     <div className="bg-[#313f47] p-5 rounded-2xl">
-                        <p className="text-xl">
+                        <p className="text-lg">
                             {movie?.overview || "No description available for this movie."}
                         </p>
                     </div>

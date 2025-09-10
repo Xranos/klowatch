@@ -1,6 +1,11 @@
 import Poster from "./poster";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { removeFromWatchlist } from "../utils/watchlist";
 
-function WatchListCard({ movie }) {
+function WatchListCard({ movie, onRemove }) {
+    const [removing, setRemoving] = useState(false);
+
     const formatDate = (dateString) => {
         if (!dateString) return "Unknown Date";
         const date = new Date(dateString);
@@ -16,36 +21,37 @@ function WatchListCard({ movie }) {
         return rating ? rating.toFixed(1) : "NA"
     }
 
-    const handleMarkFinished = () => {
-        console.log("Marked as finished:", movie?.title);
-        // Add your logic here
-    }
-
     const handleRemove = () => {
-        console.log("Removing from watchlist:", movie?.title);
-        // Add your logic here
+        if (removing) return;
+        setRemoving(true);
+        const res = removeFromWatchlist(movie?.movie_id);
+        if(!res.success) console.error(res.error);
+        setRemoving(false);
+        onRemove?.();
+
     }
 
     return (
-        
-        <div className="rounded-2xl bg-[#313f47] p-4 mx-auto flex items-strecth gap-5 max-w-3xl ">
-            <div className="flex-shrink-0">
-                <Poster src={movie?.poster} alt={movie?.title} className="w-20 h-28 rounded-lg" />
+
+        <div className=" w-full h-full rounded-2xl bg-[#313f47] p-4  flex items-strecth gap-5 shadow-lg ">
+            <div className="w-40 sm:w-50">
+                <Link to={`/movie/${movie?.movie_id}`}>
+                    <Poster movie={movie} alt={movie?.title} className="w-24 h-28 shrink-0 rounded-lg" />
+                </Link>
             </div>
-            
-            <div className="flex-grow flex flex-col min-h-28">
-                <div className=" text-white space-y-1">
-                    <h1 className="text-2xl font-semibold ">{movie?.title || "Movie Title"}</h1>
-                    <p className="text-xl text-white">{formatDate(movie?.releaseDate)}</p>
-                    <p className="text-xl text-yellow-400">{formatRating(movie?.vote_average)}⭐</p>
+
+            <div className="flex-1 min-w-0 flex flex-col">
+                <div className=" text-white space-y-1 lg:space-y-2">
+                    <Link to={`/movie/${movie?.movie_id}`}>
+                        <h1 className="text-lg lg:text-xl font-semibold hover:text-[#6b6b6b] cursor-pointer ">{movie?.title || "Movie Title"}</h1>
+                    </Link>
+                    <p className="text-base lg:text-lg text-gray-400 ">{formatDate(movie?.release_date)}</p>
+                    <p className="text-base lg:text-lg text-yellow-400">{formatRating(movie?.rating)} / 10.0⭐</p>
                 </div>
 
                 <div className="mt-auto flex gap-2 justify-end">
-                    <button onClick={handleMarkFinished} className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white 
-                rounded-2xl text-sm font-medium transition-colors duration-200">Finished</button>
-
                     <button onClick={handleRemove} className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white 
-                rounded-2xl text-sm font-medium transition-colors duration-200">Remove</button>
+                rounded-2xl text-sm font-medium transition-colors shadow-lg active:shadow-inner ">  {removing ? "Removing..." : "Remove"}</button>
                 </div>
             </div>
         </div>

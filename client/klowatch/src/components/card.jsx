@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Poster from "./poster";
 import WatchListBtn from "./watchListBtn";
 
+
 function Card({movie}){
     const formatDate = (dateString) => {
         if(!dateString) return "Unknown Date";
@@ -17,7 +18,7 @@ function Card({movie}){
         return rating ? rating.toFixed(1) : "NA"
     }
     return (
-        <div className="bg-[#313f47] rounded-2xl grid grid-rows-[auto_1fr] h-full">
+        <div className="bg-[#313f47] rounded-2xl grid grid-rows-[auto_1fr] h-full shadow-lg">
             <Link to={`/movie/${movie?.id}`}>
                 <Poster movie={movie} variant="poster-card" />
             </Link>
@@ -28,7 +29,7 @@ function Card({movie}){
                 </Link>
                 <p className="text-white text-xs pt-1">{formatDate(movie?.release_date)}</p>
                 <div className="items-center flex flex-col justify-end py-2">
-                    <WatchListBtn variant="button-card"/>
+                    <WatchListBtn variant="button-card" movie={movie}/>
                 </div>
             </div>
         </div>        

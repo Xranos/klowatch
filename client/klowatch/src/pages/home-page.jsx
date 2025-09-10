@@ -37,7 +37,7 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
 
     useEffect(() => {
         const hasQuery = !!searchParams.get("search");
-        if (hasQuery || localSearchActive) return; // don't overwrite search results
+        if (hasQuery || localSearchActive) return; 
         fetchPopularMovies();
     }, [searchParams, localSearchActive]);
 
@@ -87,7 +87,7 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
         if (onClearSearch) {
             onClearSearch();
         } else {
-            // Clear URL search params and reset state
+            
             setSearchParams({});
             setLocalSearchActive(false);
             setLocalSearchQuery("");

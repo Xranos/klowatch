@@ -1,10 +1,10 @@
 import { FiSearch } from "react-icons/fi";
 import { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 
 
-function Searchbar({onSearchResults, onClearSearch}) {
+function Searchbar({ onSearchResults, onClearSearch }) {
     const [activeSearch, setActiveSearch] = useState([]);
     const [query, setQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -24,13 +24,13 @@ function Searchbar({onSearchResults, onClearSearch}) {
         return () => clearTimeout(timeoutId);
     }, [query]);
 
-     useEffect(() => {
+    useEffect(() => {
         const handleClickOutside = (event) => {
             if (searchRef.current && !searchRef.current.contains(event.target)) {
                 setActiveSearch([]);
             }
         };
-         if (activeSearch.length > 0) {
+        if (activeSearch.length > 0) {
             document.addEventListener('mousedown', handleClickOutside);
         }
         return () => {
@@ -105,7 +105,7 @@ function Searchbar({onSearchResults, onClearSearch}) {
         <form className="w-full sm:w-[600px] relative" onSubmit={handleSubmit} ref={searchRef}>
             <div className="relative">
                 <input type="search" placeholder="Type Here" value={query} className="w-full p-2 rounded-2xl bg-white placeholder-[#313f47] text-[#313f47] 
-            focus:outline-none focus:ring-2 focus:ring-[#6b6b6b]" onChange={handleInputChange} />
+            focus:outline-none focus:ring-2 focus:ring-[#6b6b6b] shadow-lg" onChange={handleInputChange} />
                 <button type="submit" className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-[#313f47] rounded-2xl cursor-pointer">
                     <FiSearch />
                 </button>

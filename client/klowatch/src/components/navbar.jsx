@@ -34,8 +34,8 @@ function Navbar({onSearchResults, onClearSearch}) {
 
         {/* Menus Desktop Ver */}
         <div className="hidden sm:block">
-          <ul className="flex gap-20 text-xl font-medium pr-15 ">
-            <Link to="watchlist"><li className="hover:text-[#6b6b6b] flex gap-2 items-center" ><CiViewList size={24} />Watchlist</li></Link>
+          <ul className="flex gap-20 text-2xl font-medium pr-15 ">
+            <Link to="watchlist"><li className="hover:text-[#6b6b6b] flex gap-2 items-center" ><CiViewList size={28} />Watchlist</li></Link>
             {/* <Link to="profile"><li className="hover:text-[#6b6b6b] flex gap-2 items-center"><CgProfile size={24} />Profile</li></Link> */}
           </ul>
         </div>

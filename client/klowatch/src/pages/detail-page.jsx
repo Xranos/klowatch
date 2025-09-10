@@ -71,12 +71,13 @@ function DetailPage() {
                 <div className="flex flex-col gap-4">
                     <h1 className="text-4xl font-bold">{movie?.title || "Unknown Title"}</h1>
 
-                    <div className="flex items-center gap-10 text-xl">
+                    <div className="flex items-center gap-10 text-xl ">
                         <h2>{formatDate(movie?.release_date)}</h2>
-                        <h2 className="text-yellow-400">{formatRating(movie?.vote_average)} ⭐</h2>
+                        <h2>|</h2>
+                        <h2 className="text-yellow-400">{formatRating(movie?.vote_average)} / 10.0 ⭐</h2>
                     </div>
 
-                    <div className="bg-[#313f47] p-5 rounded-2xl">
+                    <div className="bg-[#313f47] p-5 rounded-2xl shadow-lg">
                         <p className="text-lg">
                             {movie?.overview || "No description available for this movie."}
                         </p>
@@ -84,7 +85,7 @@ function DetailPage() {
 
                    {/* Credits Section */}
                     {(movie?.credits || movie?.directors || movie?.writers || movie?.cast) && (
-                        <div className="bg-[#313f47] p-10 rounded-2xl divide-y divide-[#202a30]">
+                        <div className="bg-[#313f47] p-10 rounded-2xl divide-y divide-[#202a30] shadow-lg">
                             {/* Directors */}
                             {movie?.credits?.crew?.filter(p => p.job === "Director").length > 0 && (
                                 <div className="pb-4">
@@ -127,7 +128,7 @@ function DetailPage() {
                             )}
                         </div>
                     )}
-                    <WatchListBtn variant="button-card" />
+                    <WatchListBtn variant="button-card" movie={movie} />
                 </div>
             </div>
         </div>

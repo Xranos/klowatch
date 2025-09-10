@@ -106,7 +106,7 @@ app.post("/api/watchlist", async (req, res) => {
     res.json({ success: true, data: watchListData });
   } catch (error) {
     if (error.code === "23505") {
-      res.status(400).json({ error: "Movie already in watchlist" });
+      res.status(400).json({ error: "Already in Watchlist" });
     } else {
       res.status(500).json({ error: "Failed to add movie to watchlist", detail: error.message });
     }

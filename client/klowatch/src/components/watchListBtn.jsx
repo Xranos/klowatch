@@ -34,7 +34,7 @@ function WatchListBtn({ variant = "default", movie, onSuccess }) {
     const getVariant = () => {
         switch (variant) {
             case "button-card":
-                return "bg-[#68767e] py-2 px-4 rounded-2xl text-white hover:bg-[#6b6b6b] cursor-pointer"
+                return "bg-[#68767e] py-2 px-4 rounded-2xl text-white hover:bg-[#6b6b6b] transition-durations-300 font-medium active:shadow-inner shadow-lg cursor-pointer"
             default:
                 return ""
         }
@@ -53,7 +53,7 @@ function WatchListBtn({ variant = "default", movie, onSuccess }) {
     }
 
     return (
-        <button onClick={handleAddWatchlist} disabled={isLoading} className={`${getButtonStyle()} font-medium active:shadow-inner shadow-lg`}>{getButtonText()}</button>
+        <button onClick={handleAddWatchlist} disabled={isLoading} className={`${getButtonStyle()} `}>{getButtonText()}</button>
     );
 }
 

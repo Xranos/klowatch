@@ -13,6 +13,7 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
     const [localSearchActive, setLocalSearchActive] = useState(false);
     const [localSearchQuery, setLocalSearchQuery] = useState("");
 
+
     useEffect(() => {
         const urlSearchQuery = searchParams.get('search');
         const navigationSearchResults = location.state?.searchResults;
@@ -37,7 +38,7 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
 
     useEffect(() => {
         const hasQuery = !!searchParams.get("search");
-        if (hasQuery || localSearchActive) return; 
+        if (hasQuery || localSearchActive) return;
         fetchPopularMovies();
     }, [searchParams, localSearchActive]);
 
@@ -84,17 +85,18 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
     }
 
     const handleClearSearch = () => {
-        if (onClearSearch) {
-            onClearSearch();
+        if (window.history.length > 1) {
+            navigate(-1);
         } else {
-            
-            setSearchParams({});
-            setLocalSearchActive(false);
-            setLocalSearchQuery("");
-            navigate('/', { replace: true });
-            fetchPopularMovies();
+            navigate("/home", { replace: true });
         }
+        setSearchParams({});
+        if (onClearSearch) onClearSearch();
+        setLocalSearchActive(false);
+        setLocalSearchQuery("");
     };
+
+
 
 
     if (loading) {
@@ -116,11 +118,12 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
     const displaySearchActive = isSearchActive || localSearchActive;
     const displaySearchQuery = searchQuery || localSearchQuery;
 
+
     return (
         <div className="px-4 py-7 max-w-7xl mx-auto">
             <div className="flex items-center gap-x-5 mb-5">
                 {displaySearchActive && (
-                    <button onClick={handleClearSearch} className="text-white hover:text-[#6b6b6b] underline lg:text-lg sm:text-base"><IoArrowBackCircle size={45} /></button>
+                    <button onClick={handleClearSearch} className="text-white hover:text-[#6b6b6b]  lg:text-lg sm:text-base"><IoArrowBackCircle size={45} /></button>
                 )}
                 <h1 className="lg:text-4xl sm:text-2xl text-white font-bold">
                     {displaySearchActive ? `Search Results for "${displaySearchQuery}"` : "Popular Movies"}

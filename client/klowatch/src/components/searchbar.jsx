@@ -70,7 +70,7 @@ function Searchbar({ onSearchResults, onClearSearch }) {
         console.log("Selected movie:", movie);
         setQuery(movie.title);
         setActiveSearch([]);
-        navigate({ pathname: "/", search: `?search=${encodeURIComponent(q)}` });
+        navigate({ pathname: "/home", search: `?search=${encodeURIComponent(q)}` });
     }
 
     const handleSubmit = (e) => {
@@ -78,7 +78,7 @@ function Searchbar({ onSearchResults, onClearSearch }) {
         const q = query.trim();
         if (!q) return;
         setActiveSearch([]);
-        navigate({ pathname: "/", search: `?search=${encodeURIComponent(q)}` });
+        navigate({ pathname: "/home", search: `?search=${encodeURIComponent(q)}` });
     }
 
     const performFullSearch = async (searchQuery) => {

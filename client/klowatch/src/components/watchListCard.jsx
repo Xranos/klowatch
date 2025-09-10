@@ -21,15 +21,25 @@ function WatchListCard({ movie, onRemove }) {
         return rating ? rating.toFixed(1) : "NA"
     }
 
-    const handleRemove = () => {
+    const handleRemove = async () => {
         if (removing) return;
         setRemoving(true);
-        const res = removeFromWatchlist(movie?.movie_id);
-        if(!res.success) console.error(res.error);
-        setRemoving(false);
-        onRemove?.();
 
-    }
+        try {
+            const res = await removeFromWatchlist(movie?.movie_id); // Add await here
+            if (res.success) {
+                onRemove?.();
+            } else {
+                console.error("Failed to remove from watchlist:", res.error);
+                alert("Failed to remove movie from watchlist");
+            }
+        } catch (error) {
+            console.error("Error removing from watchlist:", error);
+            alert("Failed to remove movie from watchlist");
+        } finally {
+            setRemoving(false);
+        }
+    };
 
     return (
 
@@ -50,8 +60,8 @@ function WatchListCard({ movie, onRemove }) {
                 </div>
 
                 <div className="mt-auto flex gap-2 justify-end">
-                    <button onClick={handleRemove} className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white 
-                rounded-2xl text-sm font-medium transition-colors shadow-lg active:shadow-inner ">  {removing ? "Removing..." : "Remove"}</button>
+                    <button onClick={handleRemove}  disabled={removing} className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white 
+                rounded-2xl text-sm font-medium transition-durations-300 shadow-lg active:shadow-inner ">Remove</button>
                 </div>
             </div>
         </div>

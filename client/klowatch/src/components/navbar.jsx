@@ -12,7 +12,7 @@ function Navbar({ onSearchResults, onClearSearch }) {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <nav className="bg-[#313f47] text-white shadow-xl">
-      <div className=" h-16 items-center flex justify-between">
+      <div className=" h-18 items-center flex justify-between">
 
         {/* Logo Desktop Ver */}
         <h1 className="hidden sm:flex text-4xl font-bold pl-10">

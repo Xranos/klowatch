@@ -48,7 +48,7 @@ function WatchListBtn({ variant = "default", movie, onSuccess }) {
 
     const getButtonText = () => {
         // if (isLoading) return "Adding...";
-        // if (isAdded) return "Added ✓";
+        // if (isAdded) return "Added";
         return "Add To Watchlist";
     }
 

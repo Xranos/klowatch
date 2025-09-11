@@ -3,8 +3,8 @@ import { RiMovie2Fill } from "react-icons/ri";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-15 px-4 text-center -mt-16">
-      <h1 className="flex items-center text-white font-bold text-6xl sm:text-7xl lg:text-8xl">
+    <div className="min-h-screen flex flex-col items-center justify-center gap-15 px-4 text-center ">
+      <h1 className="flex items-center text-white font-bold text-6xl sm:text-7xl lg:text-8xl -mt-16">
         Kl <RiMovie2Fill className="inline-block  text-white" /> watch
       </h1>
       <p className="max-w-2xl text-white text-lg sm:text-xl">

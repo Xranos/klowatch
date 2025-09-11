@@ -134,7 +134,7 @@ function HomePage({ searchResults, searchQuery, isSearchActive, onClearSearch })
                     {displaySearchActive ? "No movies found for your search." : "No movies available."}
                 </p>
             ) : (
-                <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                     {movies.map(movie => (
                         <Card key={movie.id} movie={movie} />
                     ))}
